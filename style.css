@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#tarolo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 500px;
+}
+
+
+.divElem{
+    flex: 0 0 30%;
+    aspect-ratio: 1 / 1;
+    background-color: rgb(255, 208, 0);
+    border-radius: 50% ;
+}

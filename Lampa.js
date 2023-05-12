@@ -1,28 +1,45 @@
-class Kartya{
+class Lampa{
     
     #allapot
     #id
     #divElem
 
     constructor(id, allapot, szuloElem){
-        this.#adat = adat;
-        szuloElem.append(`<div class="divElem">
+        this.#id = id;
+        this.#allapot = allapot;
+        szuloElem.append(`<div class="divElem" >
                             
                          </div>`);
         this.#divElem = $(".divElem:last-child");
-        
+        this.#szinBeallit();
+        this.#divElem.on("click", () => {
+            this.#kattintasTrigger();
+        });
     }
 
-    setAllpot(){
-        this.szinBeallit();
+    getId(){
+        return this.#id;
     }
 
-    szinBeallit(){
-        return this.#adat;
+    setAllapot(){
+        if (this.#allapot) {
+            this.#allapot = false;
+        } else {
+            this.#allapot = true;
+        }
+        this.#szinBeallit();
     }
 
-    kattintasTrigger(){
+    #szinBeallit(){
+        if (this.#allapot) {
+            this.#divElem.css("background-color", "green")
+        } else {
+            this.#divElem.css("background-color", "yellow")
+        }
+    }
+
+    #kattintasTrigger(){
         const KAPCS = new CustomEvent("kapcsolas", {detail: this});
         window.dispatchEvent(KAPCS);
     }
-} export default Kartya;
+} export default Lampa;
